@@ -1,25 +1,13 @@
-# Secrets
 .env
 .env.*
-
-# Python
 __pycache__/
 *.pyc
 venv/
-
-# Databases
 *.db
-
-# Node / Frontend
 node_modules/
 dist/
 *.log
-
-# OS
 .DS_Store
-
-# IDE / Tooling
 .vscode/
 .idea/
-.claude/
-.vercel/
+.vercel
