@@ -1,0 +1,296 @@
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Optima
+   Two-layer system:
+     1. Primitive tokens (raw values: --ink-900, --indigo-500)
+     2. Semantic tokens (intent: --color-text-primary, --color-accent)
+   Pages should reference SEMANTIC tokens. Only this file should
+   reference primitives. That way we can reskin the brand by
+   only editing the semantic block.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ───── Primitive · Ink (warm neutral) ───── */
+  --ink-950: #08080D;
+  --ink-900: #0F0F17;
+  --ink-800: #1C1C27;
+  --ink-700: #2D2D3C;
+  --ink-600: #45455A;
+  --ink-500: #5B5B73;
+  --ink-400: #7E7E95;
+  --ink-300: #A6A6BA;
+  --ink-200: #D1D1DC;
+  --ink-150: #E1E1E9;
+  --ink-100: #EDEDF1;
+  --ink-75:  #F2F2F6;
+  --ink-50:  #F6F6F9;
+  --ink-25:  #FAFAFC;
+
+  /* ───── Primitive · Indigo (signature) ───── */
+  --indigo-50:  #EEF1FF;
+  --indigo-100: #DEE3FF;
+  --indigo-200: #C0C8FF;
+  --indigo-300: #9AA4FF;
+  --indigo-400: #7985FF;
+  --indigo-500: #4F56E8;
+  --indigo-600: #3F45CF;
+  --indigo-700: #3338A3;
+  --indigo-800: #272C7A;
+  --indigo-900: #1A1E52;
+
+  /* ───── Primitive · Spectrum (rainbow-ish CTA, indigo-rooted) ───── */
+  --spectrum-1: #4F56E8;   /* indigo  */
+  --spectrum-2: #7C5BFF;   /* violet  */
+  --spectrum-3: #B66DF0;   /* orchid  */
+  --spectrum-4: #F06D8B;   /* coral   */
+
+  /* ───── Primitive · Status ───── */
+  --green-400: #34D399;
+  --green-500: #10B981;
+  --green-600: #059669;
+  --amber-500: #F59E0B;
+  --red-500:   #EF4444;
+  --red-600:   #DC2626;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Surface & Text
+     ══════════════════════════════════════════════════════════ */
+  --color-bg:             var(--ink-25);          /* page background */
+  --color-bg-sunken:      var(--ink-50);          /* secondary band */
+  --color-surface:        #FFFFFF;                /* cards, nav */
+  --color-surface-raised: #FFFFFF;                /* modals, popovers */
+
+  --color-border:         rgba(15, 15, 23, 0.08);
+  --color-border-strong:  rgba(15, 15, 23, 0.14);
+  --color-border-focus:   var(--indigo-400);
+
+  --color-text-primary:   var(--ink-950);
+  --color-text-secondary: var(--ink-600);
+  --color-text-tertiary:  var(--ink-400);
+  --color-text-inverse:   #FFFFFF;
+  --color-text-accent:    var(--indigo-600);
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Brand / Accent
+     ══════════════════════════════════════════════════════════ */
+  --color-accent:         var(--indigo-500);
+  --color-accent-hover:   var(--indigo-600);
+  --color-accent-weak:    var(--indigo-50);
+  --color-accent-subtle:  var(--indigo-100);
+  --color-accent-strong:  var(--indigo-700);
+
+  --color-success:        var(--green-500);
+  --color-success-weak:   #ECFDF5;
+  --color-warning:        var(--amber-500);
+  --color-danger:         var(--red-500);
+  --color-danger-weak:    #FEF2F2;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Gradients
+     The "rainbow-ish" signature — indigo → violet → orchid → coral.
+     Contained warm spectrum, anchored in the brand indigo.
+     ══════════════════════════════════════════════════════════ */
+  --gradient-spectrum:
+    linear-gradient(135deg,
+      var(--spectrum-1) 0%,
+      var(--spectrum-2) 38%,
+      var(--spectrum-3) 72%,
+      var(--spectrum-4) 100%);
+
+  --gradient-spectrum-soft:
+    linear-gradient(135deg,
+      rgba(79, 86, 232, 0.12)  0%,
+      rgba(124, 91, 255, 0.10) 40%,
+      rgba(182, 109, 240, 0.08) 70%,
+      rgba(240, 109, 139, 0.06) 100%);
+
+  --gradient-text:
+    linear-gradient(135deg, var(--indigo-500) 0%, var(--spectrum-3) 100%);
+
+  --gradient-hero-wash:
+    radial-gradient(ellipse 80% 60% at 50% 0%,
+      rgba(79, 86, 232, 0.10) 0%,
+      rgba(182, 109, 240, 0.05) 35%,
+      transparent 70%);
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Typography
+     ══════════════════════════════════════════════════════════ */
+  --font-display: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', SFMono-Regular, Menlo, monospace;
+
+  /* Fluid type scale (mobile → desktop) */
+  --text-xs:    0.75rem;     /* 12 */
+  --text-sm:    0.8125rem;   /* 13 */
+  --text-md:    0.875rem;    /* 14 */
+  --text-base:  0.9375rem;   /* 15 */
+  --text-lg:    1rem;        /* 16 */
+  --text-xl:    1.125rem;    /* 18 */
+  --text-2xl:   1.25rem;     /* 20 */
+  --text-3xl:   clamp(1.375rem, 0.9rem + 1.2vw, 1.625rem);
+  --text-4xl:   clamp(1.625rem, 1rem + 2vw, 2rem);
+  --display-sm: clamp(1.875rem, 1.2rem + 2.4vw, 2.5rem);
+  --display-md: clamp(2.25rem, 1.4rem + 3.4vw, 3.25rem);
+  --display-lg: clamp(2.625rem, 1.3rem + 5vw, 4.25rem);
+  --display-xl: clamp(3rem,   1.4rem + 6.4vw, 5.25rem);
+
+  --leading-tight:   1.05;
+  --leading-snug:    1.2;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+  --leading-loose:   1.75;
+
+  --tracking-tight:    -0.032em;
+  --tracking-display:  -0.025em;
+  --tracking-normal:    0;
+  --tracking-wide:     0.04em;
+  --tracking-wider:    0.08em;
+  --tracking-widest:   0.14em;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Spacing (4 px base, fluid section padding)
+     ══════════════════════════════════════════════════════════ */
+  --space-0:  0;
+  --space-1:  0.25rem;    /*  4 */
+  --space-2:  0.5rem;     /*  8 */
+  --space-3:  0.75rem;    /* 12 */
+  --space-4:  1rem;       /* 16 */
+  --space-5:  1.25rem;    /* 20 */
+  --space-6:  1.5rem;     /* 24 */
+  --space-7:  1.75rem;    /* 28 */
+  --space-8:  2rem;       /* 32 */
+  --space-10: 2.5rem;     /* 40 */
+  --space-12: 3rem;       /* 48 */
+  --space-14: 3.5rem;     /* 56 */
+  --space-16: 4rem;       /* 64 */
+  --space-20: 5rem;       /* 80 */
+  --space-24: 6rem;       /* 96 */
+  --space-28: 7rem;       /* 112 */
+  --space-32: 8rem;       /* 128 */
+
+  --section-y:      clamp(4rem, 3rem + 4vw, 7.5rem);
+  --section-x:      clamp(1.25rem, 1rem + 2.5vw, 3rem);
+  --container-max:  1200px;
+  --container-narrow: 720px;
+  --container-reading: 640px;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Radius
+     ══════════════════════════════════════════════════════════ */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-2xl:  28px;
+  --radius-3xl:  36px;
+  --radius-pill: 9999px;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Elevation (soft, editorial — not CRM-chunky)
+     ══════════════════════════════════════════════════════════ */
+  --shadow-xs: 0 1px 2px rgba(16, 18, 45, 0.04);
+  --shadow-sm: 0 1px 2px rgba(16, 18, 45, 0.05), 0 1px 3px rgba(16, 18, 45, 0.04);
+  --shadow-md:
+    0 2px 4px rgba(16, 18, 45, 0.04),
+    0 8px 16px -4px rgba(16, 18, 45, 0.06);
+  --shadow-lg:
+    0 4px 8px -2px rgba(16, 18, 45, 0.05),
+    0 16px 32px -8px rgba(16, 18, 45, 0.08);
+  --shadow-xl:
+    0 8px 16px -4px rgba(16, 18, 45, 0.06),
+    0 24px 48px -12px rgba(16, 18, 45, 0.12);
+
+  --shadow-card:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 2px rgba(16, 18, 45, 0.04),
+    0 8px 20px -8px rgba(16, 18, 45, 0.08);
+
+  --shadow-card-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 2px 4px rgba(16, 18, 45, 0.06),
+    0 20px 40px -14px rgba(79, 86, 232, 0.22);
+
+  --shadow-glow-indigo:  0 10px 32px -10px rgba(79, 86, 232, 0.45);
+  --shadow-glow-spectrum:
+    0 10px 32px -10px rgba(124, 91, 255, 0.40),
+    0 4px 12px -4px rgba(240, 109, 139, 0.18);
+
+  --shadow-focus-ring: 0 0 0 3px rgba(79, 86, 232, 0.22);
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Motion
+     ══════════════════════════════════════════════════════════ */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast:   140ms;
+  --duration-base:   220ms;
+  --duration-slow:   380ms;
+  --duration-slower: 600ms;
+  --duration-page:   720ms;
+
+  /* ══════════════════════════════════════════════════════════
+     SEMANTIC · Z-Index
+     ══════════════════════════════════════════════════════════ */
+  --z-background: 0;
+  --z-base:       1;
+  --z-content:    2;
+  --z-sticky:     20;
+  --z-nav:        50;
+  --z-overlay:    100;
+  --z-modal:      200;
+  --z-toast:      300;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Legacy aliases — preserve compatibility with existing CSS
+   that references --primary-*, --accent-*, --gray-*, etc.
+   We keep these mapped to the new semantic tokens so nothing
+   breaks while we migrate. Delete once all files are migrated.
+   ══════════════════════════════════════════════════════════ */
+:root {
+  /* primary → indigo */
+  --primary-50:  var(--indigo-50);
+  --primary-100: var(--indigo-100);
+  --primary-200: var(--indigo-200);
+  --primary-300: var(--indigo-300);
+  --primary-400: var(--indigo-400);
+  --primary-500: var(--indigo-500);
+  --primary-600: var(--indigo-600);
+  --primary-700: var(--indigo-700);
+
+  /* accent → tinted violet (replaces old teal) */
+  --accent-400: var(--spectrum-2);
+  --accent-500: var(--spectrum-3);
+  --accent-600: var(--indigo-700);
+
+  /* neutrals */
+  --gray-50:  var(--ink-50);
+  --gray-100: var(--ink-75);
+  --gray-200: var(--ink-150);
+  --gray-300: var(--ink-200);
+  --gray-400: var(--ink-300);
+  --gray-500: var(--ink-500);
+  --gray-600: var(--ink-600);
+  --gray-700: var(--ink-700);
+  --gray-800: var(--ink-800);
+  --gray-900: var(--ink-900);
+
+  /* status */
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --error:   var(--color-danger);
+
+  /* semantic shortcuts used in existing CSS */
+  --bg:           var(--color-bg);
+  --bg-secondary: var(--color-bg-sunken);
+  --surface:      var(--color-surface);
+  --surface-raised: var(--color-surface-raised);
+  --border:       var(--color-border);
+  --border-hover: var(--color-border-strong);
+  --text-1:       var(--color-text-primary);
+  --text-2:       var(--color-text-secondary);
+  --text-3:       var(--color-text-tertiary);
+}

@@ -1,0 +1,82 @@
+/* ══════════════════════════════════════════════════════════════
+   BASE — element defaults, selection, scrollbar, focus, a11y
+   ══════════════════════════════════════════════════════════════ */
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-feature-settings: "ss01", "cv11", "cv02", "tnum";
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100dvh;
+  isolation: isolate;
+}
+
+::selection {
+  background: var(--indigo-200);
+  color: var(--indigo-900);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-150);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-300);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+/* Accessibility — visible focus ring (WCAG AA) */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+
+/* Remove outline on mouse-initiated focus only — focus-visible handles keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Select options — legibility on dark themes / browsers */
+select option {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+select option:disabled {
+  color: var(--color-text-tertiary);
+}

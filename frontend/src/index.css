@@ -1,0 +1,15 @@
+/* ══════════════════════════════════════════════════════════════
+   OPTIMA · Global Styles Entry
+   ──────────────────────────────────────────────────────────────
+   Layer order is load-bearing:
+     1. tokens       — design variables (colors, type, space…)
+     2. reset        — cross-browser element reset
+     3. base         — element defaults, a11y, scrollbar
+     4. primitives   — reusable .btn / .card / .input / .chip
+   Page-specific CSS is imported inside each component file.
+   ══════════════════════════════════════════════════════════════ */
+
+@import './styles/tokens.css';
+@import './styles/reset.css';
+@import './styles/base.css';
+@import './styles/primitives.css';
